@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% blocktitle %}Home{% endblock %}
+{% block content %}
+div class="content">
+    <table>
+        <tr>
+            <th>Tasks</th>
+            <th>Added_Tasks</th>
+            <th>action</th>
+        </tr>
+        {{% for task in task %}}
+        <tr>
+            <td></td>
+            <td></td>
+            <td>
+                <a href="">Update</a>
+                <br>
+                <a href="">Delete</a>
+            </td>
+        </tr>
+        {{% endfor %}}
+    </table>
+    <form action="/" method="post">
+        <div>
+            <input type="text" name="content" id="content" align="center">
+            <input type="submit" value="Add Task" align="center">
+        </div>
+    </form>
+</div>
+{% endblock %}

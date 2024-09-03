@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}
+<p>login </p>
+{% endblock %}
+{% block content %}
+
+<form method="post" action="{{ url_for('login') }}">
+    <h3 align="center">Login </h3>
+    <div class="form-group">
+        
+        <label for="email">E-mail</label>
+        <br>
+        <input type="email" id = "email" class="form-control" required name="email"
+            placeholder="Enter Your E-mail">
+    </div>
+    <br>
+    <div>
+        <label for="pass">Password</label>
+        <br>
+        <input id="pass" type="password" class="form-control"
+            required placeholder="Enter Your Password"
+            name="password"  >
+    </div>
+    <br>
+    <div>
+        <input type="button" class="btn btn-primary" value="Log in">
+    </div>
+
+</form>
+{% endblock %}

@@ -7,7 +7,7 @@ This project is a To-Do List web application built using Flask for the back-end 
 
 
 Final Project Blog Article
-Read more about the development process, challenges, and solutions in the project’s blog article: Blog Article
+Read more about the development process: https://www.linkedin.com/posts/amna-hussien-6822a8a1_hello-to-do-list-website-coming-soon-activity-7242171084995739648-0jLo?utm_source=share&utm_medium=member_desktop
 
 Author(s) LinkedIn
 Amna Hussien - https://www.linkedin.com/in/amna-hussien-6822a8a1/

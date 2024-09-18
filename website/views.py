@@ -1,59 +1,59 @@
 from flask_login import login_required, current_user
-from . import db
-from flask import Blueprint, render_template,request
-from .models import task
-
+from website import db
+from flask import Blueprint, render_template,request, redirect, url_for, flash
+from website.models import User
+from website.models import Task
+from datetime import datetime
 
 views = Blueprint('views', __name__)
 
-@login_required
 @views.route('/', methods=['POST', 'GET'])
+@login_required
 def home():
-    if request.method == ['POST']:
-        task = request.form.get('task')
-        if len(task) < 1:
-            return "Task Is Too Short!"
+    if request.method == 'POST':
+        content = request.form.get('content')
+        if len(content) < 1:
+            flash('Task Is Too Short!', category='error')
         else:
-            new_task = task(content=task, user_id=current_user, is_complete=False, due_date=datetime.utcnow)
-            db.sessio.add(new_task)
+            new_task = Task(content=content,user_id=current_user.id)
+            db.session.add(new_task)
             db.session.commit()
-            return("Task added Successfully!")
+            flash('Task added Successfully!',category='successfull')
+    
     return render_template('home.html', user=current_user)
-@views.route('/delete_task/<int:id>', methods=['POST', 'GET'])
-def delete_task(id):
+
+
+@views.route('/delete/<int:id>', methods=['POST', 'GET'])
+@login_required
+def delete(id):
     #check if user is logged in
 
     if not current_user.is_authenticated:
         return redirect(url_for('login'))
     else:
-        task_to_delete = task.query.get_or_404(id)
-        if task_to_delete:
-            if task_to_delete.user_id != current_user.id:
+        delete = Task.query.get_or_404(id)
+        if delete:
+            if delete.user_id != current_user.id:
                 abort(403)
             else:
-                db.session.remove(task_to_delete)
-                db.session.commit()
-                return " Task deleted successfully "
-        #return redirect(url_for('home.html'))
-@views.route('/update/<int:id>', methods=['PUT'])
-def update_task(id):
-    task_id = task.query.get_or_400(id)
-    if request.method =='POST':
-        task_id.content = request.form['content']
-        if content == NULL or not content:
-            return "conent is required"
+                    db.session.delete(delete)
+                    db.session.commit()
+                    flash('Task deleted successfully', category='successfull')
+                    return redirect(url_for('views.home'))
+@views.route('/update/<int:id>', methods=['POST', 'GET'])
+@login_required
+def update(id):
+    # task_id = task.query.get_or_400(id)
+    # if request.method =='POST':
+        content = request.form.get('content')
+        if len(content) < 1  or not content:
+            flash('conent is require', category='error')
         elif len(content) > 50:
-            return "Error the content is too long"
-        task_id.description = request.form['description']
-        if description == NULL or not description:
-            return "Description is required"
-        task_id.due_date = request.form['due_date']
-        if due_date == NULL or not due_date:
-            return "Due date is required"
-        elif not validate_date(due_date):
-            return "Due date format is not validate"
-        db.session.commit()
-        return "Task updated successfully" # i need to use try and except****
-    else:
-        return render_template('home.html')
+            flash('Error the content is too long', category='error')
+        else:
+            return(render_template('update.html'))
+            task.content=content
+            db.session.commit()
+            flash('Task updated successfully', category='successfull') # i need to use try and except****
+            return redirect(url_for('views.home'))
 #this route accept id as parameter

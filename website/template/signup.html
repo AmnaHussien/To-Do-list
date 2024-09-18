@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}Sign Up | To-Do List{% endblock %}
+{% block content %}
+<form method="POST">
+    <br>
+    <div style="text-align: center;" >
+        <h3>Create a To-Do List account</h3>
+        <!-- <h4>Quick and easy process</h4> -->
+         <br>
+    </div>
+    
+    <div style="text-align: center;">
+        <label for="username">Enter your Name</label>
+        <br>
+        <input  id = 'username' type="text"
+            name='username' required>
+    </div>
+    <br>
+    <div style="text-align:center;">
+        
+        <label for="email">Enter Your E-mail</label>
+        <br>
+        <input id = "email" required name="email">
+    </div>
+    <br>
+    <div style="text-align: center;">
+        <label for="pass">Enter Your Password</label>
+        <br>
+        <input id="pass" type="password"
+            required name="password">
+    </div>
+    <br>
+    <div style="text-align: center;">
+        <label for="pass2">Confirm Your Password</label>
+        <br>
+        <input id="pass2" type="password"
+            required name="password2">
+    </div>
+    <br>
+    <div style="text-align: center;">
+        <button type="submit" style="background-color: rgb(16, 16, 221); color:white;">Sign Up</button>
+    </div>
+    
+    <!-- <div style="text-align: center;"> -->
+        <!-- <input type="button" value="Sign Up" style="text-align: center; background-color:blue;  -->
+        <!-- color:white; border-radius: 0px; ">  -->
+    <!-- </div> -->
+
+</form>
+{% endblock %}

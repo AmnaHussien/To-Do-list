@@ -8,22 +8,29 @@
     </head>
     <body>
     
-        <nav class="navbar" style="background-color: #333; padding:10px 20 px;">
-            <a href="#" class="navbar-logo" style="color: white; font-size: 24px;
-                font-weight: bold; text-decoration: none;">To-Do List</a>
+        <nav class="navbar" style="background-color: #333; padding:10px 20px;" align="center">
+            <a href="#" class="navbar-logo"  style="color: white; font-size: 24px;
+                font-weight: bold; text-decoration: none; font-size:xx-large;" >To-Do List</a>
                 
-                <div class="navbar-container" style="display:flex; justify-content: space-between; align-items:center">
-                    <ul class="navbar-links" style="list-style: none; display: flex;  flex-direction:row; gap:10px; ">
+                <div class="navbar-container" style="display:flex;
+                    justify-content: space-between;">
+                    <ul class="navbar-links" style="list-style:none; display: flex; 
+                        flex-direction:row; gap:20px; padding:0px; margin:0px;">
                         {% if user.is_authenticated %}
-                        <li><a class="nav-item nav-link" id="home" href="/home" style="display: inline; 
-                            background-color:#333; text-decoration:none; padding:10px; color:white;">Home</a></li>
-                        <li><a class="nav-item nav-link" id="logout" href="/logout" style="display: inline;
-                            background-color:#333; text-decoration:none; padding:10px; color:white;">Logout</a></li>
+                        <li ><a class="nav-item nav-link" id="home" href="/home" style="display: block; 
+                            background-color:#333; text-decoration:none;
+                                padding:10px; color:white; font-size:large; " align="center">Home</a></li>
+                        <li><a class="nav-item nav-link" id="logout" href="/logout" style="display: block;
+                            background-color:#333; text-decoration:none; padding:10px; color:white;
+                            text-align:right; font-size:large;">Logout</a></li>
                         {% else %}
-                        <li><a class="nav-item nav-link" id="login" href="/login" style="display: inline;
-                            background-color:#333; text-decoration:none; padding:10px; color:white;">Login</a></li>
-                        <li><a class="nav-item nav-link" id="signUp" href="/signup" style="display: inline;
-                            background-color:#333; text-decoration:none; padding:10px; color:white;">Signup</a></li>
+                        <li><a class="nav-item nav-link" id="login" href="/login"
+                                style="display: block;
+                            background-color:#333; text-decoration:none; padding:10px;
+                            color:white; font-size:large;">Login</a></li>
+                        <li><a class="nav-item nav-link" id="signUp" href="/signup" style="display: block;
+                            background-color:#333; text-decoration:none; padding:10px; color:white;
+                            text-align:right; font-size:large;">Signup</a></li>
                         {% endif %}
                 </ul>
                 </div>

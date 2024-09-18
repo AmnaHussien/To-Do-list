@@ -4,47 +4,44 @@
 <form method="POST">
     <br>
     <div style="text-align: center;" >
-        <h3>Create a To-Do List account</h3>
+        <h2>Create a To-Do List account</h2>
         <!-- <h4>Quick and easy process</h4> -->
          <br>
     </div>
     
     <div style="text-align: center;">
-        <label for="username">Enter your Name</label>
+        <label for="username" style="font-size: larger;">Enter your Name</label>
         <br>
         <input  id = 'username' type="text"
-            name='username' required>
+            name='username' required style="width:30%; padding:5px; ">
     </div>
     <br>
     <div style="text-align:center;">
         
-        <label for="email">Enter Your E-mail</label>
+        <label for="email" style="font-size:larger;">Enter Your E-mail</label>
         <br>
-        <input id = "email" required name="email">
+        <input id = "email" required name="email" style="width: 30%; padding:6px;">
     </div>
     <br>
     <div style="text-align: center;">
-        <label for="pass">Enter Your Password</label>
+        <label for="pass" style="font-size: larger;">Enter Your Password</label>
         <br>
         <input id="pass" type="password"
-            required name="password">
+            required name="password" style="width:30%; padding:6px">
     </div>
     <br>
     <div style="text-align: center;">
-        <label for="pass2">Confirm Your Password</label>
+        <label for="pass2" style="font-size: larger;">Confirm Your Password</label>
         <br>
         <input id="pass2" type="password"
-            required name="password2">
+            required name="password2" style="width:30%; padding:6px;">
     </div>
     <br>
     <div style="text-align: center;">
-        <button type="submit" style="background-color: rgb(16, 16, 221); color:white;">Sign Up</button>
+        <button type="submit" style="background-color: rgb(16, 16, 221);
+        color:white; width:7%; padding:4px; font-size:larger;">Sign Up</button>
     </div>
     
-    <!-- <div style="text-align: center;"> -->
-        <!-- <input type="button" value="Sign Up" style="text-align: center; background-color:blue;  -->
-        <!-- color:white; border-radius: 0px; ">  -->
-    <!-- </div> -->
 
 </form>
 {% endblock %}

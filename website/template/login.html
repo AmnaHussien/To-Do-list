@@ -5,22 +5,24 @@ Login | To-Do List
 {% block content %}
 
     <form method="POST">
-        <h2 style="text-align: center;">Login </h2>
-        <div style="text-align:center">  
-            <label for="email">Enter Your E-mail</label>
+        <h2 style="text-align: center; padding:20px 0px 0px 0px; ">Login User</h2>
+        <div style="text-align:center; ">  
+            <label for="email" style="font-size: larger;">Enter Your E-mail</label>
+            
             <br>
-            <input type="email" id = "email" class="form-control" required name="email">
+            <input type="email" id = "email" required name="email" style="width: 30%; padding:6px;">
         </div>
         <br>
         <div style="text-align: center;">
-            <label for="pass">Enter Your Password</label>
+            <label for="pass" style="font-size: larger;">Enter Your Password</label>
             <br>
-            <input id="pass" type="password" class="form-control"
-                required name="password">
+            <input id="pass" type="password" 
+                required name="password" style="width: 30%; padding:6px;">
         </div>
         <br>
         <div style="text-align: center; ">
-            <button type="submit" style="background-color: rgb(18, 18, 216); color:white;"> Login </button>
+            <button type="submit" style="background-color: rgb(35, 35, 199);
+            color:white; width:7%;  padding:4px; font-size:larger;"> Login </button>
         </div>
     
     </form>
